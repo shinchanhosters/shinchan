@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Season</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+</div>
+
+<div class="container">
+  <a class="back" href="index.html">← Back</a>
+  <div id="season-root"></div>
+</div>
+
+<script>
+function qs(name){
+  return new URLSearchParams(location.search).get(name);
+}
+
+async function render(){
+  const id = qs('id');
+  const root = document.getElementById('season-root');
+  if(!id){ root.innerText = 'No season specified'; return; }
+  const res = await fetch('data/seasons.json');
+  const seasons = await res.json();
+  const season = seasons.find(s=>s.id===id);
+  if(!season){ root.innerText = 'Season not found'; return; }
+
+  root.innerHTML = `
+    <img src="${season.banner}" class="banner" alt="${season.title}">
+    <h1>${season.title}</h1>
+    <div class="player-box">
+      <video id="player" controls playsinline>
+        <source src="${season.episodes[0].url}" type="video/mp4">
+      </video>
+    </div>
+    <div class="ep-tools">
+      <h2>Episodes</h2>
+      <input id="ep-search" class="search" placeholder="Filter episodes (number or title)..." aria-label="Search episodes">
+    </div>
+    <div class="ep-grid" id="ep-list"></div>
+    <div class="notice-box">⚠️ <b>Mobile Tip:</b> Rotate your phone horizontally for a better viewing experience!</div>
+  `;
+
+  const grid = document.getElementById('ep-list');
+  const player = document.getElementById('player');
+  const search = document.getElementById('ep-search');
+
+  function renderEpisodes(list){
+    grid.innerHTML = '';
+    list.forEach(ep=>{
+      const btn = document.createElement('button');
+      btn.innerText = 'EP ' + ep.ep;
+      btn.onclick = ()=>{ player.src = ep.url; player.load(); player.play(); window.scrollTo({top:0,behavior:'smooth'}); };
+      grid.appendChild(btn);
+    });
+  }
+
+  renderEpisodes(season.episodes);
+
+  search.addEventListener('input', (e)=>{
+    const q = e.target.value.trim().toLowerCase();
+    if(!q) return renderEpisodes(season.episodes);
+    renderEpisodes(season.episodes.filter(ep=> (ep.ep + ' ' + (ep.title||'')).toLowerCase().includes(q)));
+  });
+}
+
+document.addEventListener('DOMContentLoaded', render);
+</script>
+
+</body>
+</html>
