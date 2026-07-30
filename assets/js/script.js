@@ -4,6 +4,7 @@
    - Sets current year in footer
    - Lightweight lazy-loading guard for older browsers (fallback)
    - Small accessible enhancements (keyboard focus)
+   - Renders pages from data/pages.json into the Pages & Links section
 */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -64,4 +65,38 @@ document.addEventListener('DOMContentLoaded', function () {
     img.src = src;
     img.onload = () => { el.style.backgroundImage = `url('${src}')`; el.classList.add('bg-loaded'); };
   });
+
+  // Load pages (blogger-style links) from data/pages.json and render them
+  const pagesList = document.getElementById('pages-list');
+  if (pagesList) {
+    fetch('data/pages.json')
+      .then(res => res.ok ? res.json() : Promise.reject('Failed to load pages.json'))
+      .then(pages => {
+        if (!Array.isArray(pages) || pages.length === 0) {
+          pagesList.innerHTML = '<p class="muted">No pages configured. Edit <code>data/pages.json</code> to add links.</p>';
+          return;
+        }
+        pagesList.innerHTML = '';
+        pages.forEach(p => {
+          const card = document.createElement('a');
+          card.className = 'card glass';
+          card.href = p.url;
+          card.target = '_blank';
+          card.rel = 'noopener noreferrer';
+          card.innerHTML = `<h3>${escapeHtml(p.title)}</h3><p style="color:var(--muted)">${escapeHtml(p.description || '')}</p>`;
+          pagesList.appendChild(card);
+        });
+      })
+      .catch(err => {
+        pagesList.innerHTML = '<p class="muted">Unable to load pages.json</p>';
+        console.error(err);
+      });
+  }
+
+  // small helper to escape HTML when injecting content
+  function escapeHtml(str){
+    if (!str) return '';
+    return String(str).replace(/&/g, '&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+  }
+
 });
