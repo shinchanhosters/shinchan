@@ -1,58 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>My Shows — Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" href="https://ik.imagekit.io/garrywebworld/compressed_Shin%20Chan%20GitHub%20Octocat%20Favicon.png" type="image/png">
-   
+  <!-- Primary meta / SEO -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Shin Chan Season 7 (Hindi HD) - Download all available episodes in Hindi HD. Fast, responsive, and easy to browse." />
+  <title>Shin Chan Season 7 (Hindi HD) — Download</title>
+
+  <!-- Open Graph for better link previews -->
+  <meta property="og:title" content="Shin Chan Season 7 (Hindi HD) — Download" />
+  <meta property="og:description" content="Download all available episodes of Shin Chan Season 7 in Hindi HD quality." />
+  <meta property="og:image" content="https://ik.imagekit.io/garrywebworld/263671753180860447.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Favicon (optional, already added to your site) -->
+  <link rel="icon" href="https://ik.imagekit.io/garrywebworld/compressed_Shin%20Chan%20GitHub%20Octocat%20Favicon.png" type="image/png">
 </head>
 <body>
-</div>
+  <main id="page" class="page">
+    <!-- Hero -->
+    <header class="hero" role="banner" aria-label="Shin Chan Season 7 hero">
+      <!-- Lazy-loaded hero image for fast loading -->
+      <img
+        class="hero-image"
+        src="https://ik.imagekit.io/garrywebworld/263671753180860447.jpg"
+        alt="Shin Chan Season 7 banner"
+        loading="lazy"
+        width="1600"
+        height="800"
+      />
 
-<div class="container">
-    <header class="home-header">
-        <h1>Shows</h1>
-        <input id="season-search" class="search" placeholder="Search seasons or titles..." aria-label="Search seasons">
+      <!-- Overlay gradient + glow shapes -->
+      <div class="hero-overlay">
+        <div class="glow glow-left"></div>
+        <div class="glow glow-right"></div>
+      </div>
+
+      <!-- Hero content -->
+      <div class="hero-content container">
+        <div class="hero-meta">
+          <h1 class="title">Shin Chan Season 7 (Hindi HD)</h1>
+          <p class="subtitle">Download all available episodes of Shin Chan Season 7 in Hindi HD quality.</p>
+
+          <!-- CTA / download button -->
+          <div class="cta-row">
+            <a
+              class="btn btn-download"
+              id="downloadBtn"
+              href="https://mega.nz/folder/KDpElK4T#DX3kCt_m_wEfSZ3-eSjLow"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download all episodes in a new tab"
+            >
+              <!-- Animated download SVG icon -->
+              <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="g1" x1="0" x2="1">
+                    <stop offset="0" stop-color="#ff7a18"/>
+                    <stop offset="1" stop-color="#af002d"/>
+                  </linearGradient>
+                </defs>
+                <path class="arrow" fill="url(#g1)" d="M12 3v9.586l2.293-2.293 1.414 1.414L12 16.414 6.293 10.707l1.414-1.414L11 12.586V3z"></path>
+                <rect class="bar" x="4" y="18" width="16" height="2" rx="1" fill="#2b2b2b" opacity="0.9"></rect>
+              </svg>
+              <span class="btn-text">Download All Episodes</span>
+              <span class="btn-glow" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right side: info card and secondary thumbnail -->
+        <aside class="hero-side">
+          <!-- Glass-style info card -->
+          <section class="info-card glass" aria-labelledby="infoTitle">
+            <h2 id="infoTitle">Information</h2>
+            <ul class="info-list">
+              <li><strong>Language:</strong> Hindi</li>
+              <li><strong>Season:</strong> 7</li>
+              <li><strong>Video Quality:</strong> HD</li>
+              <li><strong>Format:</strong> MP4</li>
+              <li><strong>Download Type:</strong> Direct Mega Folder</li>
+              <li><strong>Audio:</strong> Hindi Dubbed</li>
+              <li><strong>Compatibility:</strong> Mobile, TV and PC</li>
+            </ul>
+          </section>
+
+          <!-- Secondary visual card -->
+          <div class="thumb-card glass">
+            <img
+              class="thumb-img"
+              src="https://ik.imagekit.io/garrywebworld/11681280278682191.jpg"
+              alt="Shin Chan Season 7 thumbnail"
+              loading="lazy"
+              width="420"
+              height="236"
+            />
+            <div class="thumb-meta">
+              <h3>Season 7 Highlights</h3>
+              <p>Hindi dubbed episodes in HD — neatly packaged for quick download.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
     </header>
-    <div id="seasons" class="season-grid"></div>
-</div>
 
-<script>
-async function load() {
-    const res = await fetch('data/seasons.json');
-    const seasons = await res.json();
-    const grid = document.getElementById('seasons');
-    const search = document.getElementById('season-search');
+    <!-- Download features / cards -->
+    <section class="features container" aria-label="Download features and benefits">
+      <h2 class="section-title">Why Download from Here</h2>
+      <div class="cards">
+        <article class="card glass reveal">
+          <h3>Clean Organization</h3>
+          <p>Episodes are grouped, labeled, and easy to find.</p>
+        </article>
+        <article class="card glass reveal">
+          <h3>Fast & Lightweight</h3>
+          <p>Minimal UI, optimized images, and lazy loading for speed.</p>
+        </article>
+        <article class="card glass reveal">
+          <h3>Multi-device Support</h3>
+          <p>Files compatible with mobile, smart TVs and computers.</p>
+        </article>
+      </div>
+    </section>
 
-    function render(list){
-        grid.innerHTML = '';
-        list.forEach(s => {
-            const card = document.createElement('a');
-            card.className = 'season-card';
-            card.href = `season.html?id=${encodeURIComponent(s.id)}`;
-            card.innerHTML = `
-                <img src="${s.banner}" alt="${s.title}" class="banner"/>
-                <div class="meta">
-                    <h2>${s.title}</h2>
-                    <p>${s.description || ''}</p>
-                </div>`;
-            grid.appendChild(card);
-        });
-    }
+    <!-- About section -->
+    <section class="about container reveal" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle">About This Website</h2>
+      <p>
+        This website is created for Shin Chan fans to easily browse and access available episode collections.
+        It features a clean interface, fast loading pages, responsive design, and organized episode listings.
+        The goal is to provide a smooth browsing experience with HD-quality media information and easy navigation.
+      </p>
+    </section>
 
-    render(seasons);
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <p class="brand">Shin Chan — Season 7</p>
+          <p class="muted">© <span id="year"></span> Shin Chan Fans. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+          <p class="muted">Made for fans • Fast, clean & responsive</p>
+        </div>
+      </div>
+    </footer>
+  </main>
 
-    search.addEventListener('input', (e) => {
-        const q = e.target.value.trim().toLowerCase();
-        if(!q) return render(seasons);
-        render(seasons.filter(s => (s.title + ' ' + (s.description||'')).toLowerCase().includes(q)));
-    });
-}
-
-document.addEventListener('DOMContentLoaded', load);
-</script>
+  <!-- Scripts -->
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>
