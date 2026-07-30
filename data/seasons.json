@@ -29,10 +29,10 @@
   "banner": "https://ik.imagekit.io/garrywebworld/263671753180860447.jpg",
   "download": "https://mega.nz/folder/zXJkXRZI#kXZ1DNk_zLAbmxaBVsqjvw",
   "episodes": [
-    {
-      "ep": "Download All Episodes",
-      "url": "https://mega.nz/folder/zXJkXRZI#kXZ1DNk_zLAbmxaBVsqjvw"
-    }
+    
+      {"ep": "Download All Episodes",}
+      {"url": "https://mega.nz/folder/zXJkXRZI#kXZ1DNk_zLAbmxaBVsqjvw"}
+        
   ]
 }
 ]
